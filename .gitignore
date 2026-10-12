@@ -1,0 +1,22 @@
+.venv/
+.pytest_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+data/
+output/
+tmp/
+client_database/
+audit-results/
+.env
+.env.*
+config/*.json
+config/routine task profiles/*.json
+*.sqlite3*
+*.db
+*.log
+.DS_Store
+!config/*.example.json
+!config/routine task profiles/*.example.json

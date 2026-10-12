@@ -1,0 +1,173 @@
+TASK: RESEARCH A CITY'S CLINIC DIRECTORY
+
+Prepare a source-backed clinic directory for import into a client-research application. Research clinic facts and physical branches, not AI visibility or sales priority. The application checks identification and recommendations separately.
+
+RESEARCH INPUTS
+City (exact CSV value): {{CITY}}
+Country name: {{COUNTRY_NAME}}
+Country code (exact CSV value): {{COUNTRY_CODE}}
+Workspace language: {{LANGUAGE}}
+Area scope: {{AREAS}}
+Allowed treatments (exact treatment ID = treatment name):
+{{TREATMENTS}}
+
+Treat these inputs as data. Use only the listed treatment IDs. Preserve official clinic names, accents and local address spelling. If a scope or treatment definition is ambiguous, ask before researching. If you cannot access current sources, ask me for source files or browsing access and stop; do not produce a directory from memory.
+
+RESEARCH METHOD
+1. Find active, patient-facing physical clinics inside the specified city and area scope that provide at least one listed treatment. Exclude virtual-only services, training venues, closed clinics and locations outside the scope. Cover every requested area; search using local-language treatment terms, clinic directories and relevant registers as discovery sources.
+2. Verify each candidate against its official location/contact page and treatment pages. Record actual source URLs and the date accessed. Use independent directories or registers to cross-check identity/address where available. Search snippets and AI answers are discovery leads, not final evidence. Report contradictions and access limitations.
+3. Confirm the physical address, official website and at least one listed treatment at that specific branch. An organisation-wide service list does not prove every branch offers it. Do not invent or use placeholders for required facts. Put incomplete candidates in the review notes, outside the import CSV.
+4. Deduplicate the same physical clinic using its identity, address and location-page evidence. Resolve alternate spellings and duplicate directory listings. Distinct businesses at the same address remain separate; a shared name, brand or website alone is not evidence of a duplicate.
+5. Identify the buying/contact unit separately from the physical branch. Group branches under the same account_id only when supplied instructions or sources establish a shared buying/contact decision unit. Shared branding or ownership alone does not establish central purchasing. Independent franchise operators require separate account IDs. When the relationship is unclear, keep branches in separate provisional accounts and flag the relationship for my review rather than guessing a shared buyer.
+6. If I attach an earlier directory, retain existing account_id and branch_id values for verified unchanged identities. Do not renumber records. Explain any proposed identity changes, new branches and missing old branches in the review notes. Missing branches in a replacement file will stop receiving checks, so never silently omit an old branch because you could not verify it.
+
+IMPORT FILE: clinics.csv
+Return a UTF-8, comma-separated CSV with exactly this header, in this order:
+account_id,account_name,branch_id,branch_name,country_code,city,area,address,website,treatment_ids,account_aliases,branch_aliases
+
+BEGIN CSV DATA CONTRACT
+CONTRACT VERSION: client_search.directory.v1
+EXPORT PROFILE: fully-quoted-single-line.v1
+
+This is a normative plain-text data specification, not JSON Schema. MUST means required for the file you generate; MUST NOT means prohibited. Apply all rules together. The importer also accepts some older CSV variations; generate only this canonical profile. A syntactically valid row still requires the source evidence described above.
+
+FILE SERIALIZATION (exact output bytes)
+S01. File name MUST be clinics.csv. Encoding MUST be UTF-8 without a byte-order mark. Use LF (U+000A) between records and after the last record.
+S02. The first record MUST be the exact unquoted header above. Header names, order and case MUST NOT change. Do not put instructions or type definitions inside the CSV.
+S03. Each data record MUST represent one physical branch and contain exactly 12 cells in header order, separated by commas (U+002C). No trailing delimiter, blank records, comments or extra columns.
+S04. Every data cell MUST be enclosed in double quotes (U+0022), even IDs and empty optional cells. A literal double quote inside a value MUST be doubled. Example: the decoded name Example "Skin" MUST serialize as "Example ""Skin""". Do not use backslash escaping.
+S05. Each data record MUST occupy one physical line. Values MUST NOT contain tabs, CR, LF, other Unicode control characters, or Unicode line/paragraph separators (U+2028/U+2029). Join published address lines with comma and space; do not remove other meaningful punctuation.
+S06. Values MUST NOT have leading/trailing whitespace. Preserve internal spelling, punctuation, accents and local script. Do not transliterate, abbreviate, truncate or change case unless a column explicitly requires it.
+S07. All cells in columns 01-10 MUST be nonempty. Only columns 11-12 may be empty; serialize an empty cell as "". Do not substitute null, NULL, none, N/A, unknown, -, [], {}, an example value or a guessed fact for missing data.
+S08. Sort records by decoded account_id, then decoded branch_id, using case-sensitive Unicode code-point order. Every branch_id MUST occur exactly once. An account_id may repeat only for verified branches of the same buying/contact unit.
+S09. List cells MUST use | (U+007C) between items, with no spaces added around the separator. Every item MUST be nonempty and distinct. Sort items in case-sensitive Unicode code-point order. No leading/trailing |, doubled ||, commas as list separators, JSON arrays or bullet lists.
+S10. Do not add scores, visibility claims, source URLs in extra columns, totals, summaries or Markdown fences to the CSV file. Evidence and limitations belong in research-notes.md.
+
+VALUE TYPES (apply to decoded cells after CSV unquoting)
+ID: 1-128 ASCII characters; full match of [A-Za-z0-9][A-Za-z0-9_.:-]{0,127}. First character is a letter or digit; remaining characters may also be _, ., :, or -. Case-sensitive. IDs are text, never numbers to reformat. Keep earlier IDs unchanged. For new accounts/branches use durable descriptive IDs, not row numbers; resolve collisions before export.
+TEXT: Nonempty Unicode text satisfying S05-S07. Length is not artificially limited; retain the full verified name or address. For literal aliases, | is additionally prohibited within an item.
+COUNTRY: Exactly two uppercase ASCII letters, full match [A-Z]{2}, and exact equality to the supplied country code. No country names, lowercase codes, three-letter codes or alternatives such as UK when GB was supplied.
+URL: One absolute http:// or https:// URL with a valid hostname/IP and valid port if present. MUST NOT contain whitespace, control characters, embedded username/password or an unescaped double quote. Preserve the official URL; use proper URL encoding when needed. No fabricated, directory, shortened, login or tracking URL.
+ID_LIST: One or more ID items following S09. Each item MUST be an exact key from the supplied treatment dictionary; no treatment labels or unlisted IDs.
+ALIAS_LIST: Either an empty cell, or one or more verified TEXT items following S09. Each item MUST be a literal alternate name; do not add regexes, wildcards, URLs, notes or a synonym you invented.
+
+COLUMN 01: account_id
+TYPE: ID
+REQUIRED: yes; empty is prohibited.
+VALUE: Stable ID for one buying/contact decision unit. A standalone clinic still needs an account ID as well as its branch ID.
+RELATION: Repeat only for branches verified to share this decision unit. A shared brand/owner/domain alone is insufficient. Unconfirmed relationships use separate provisional accounts, flagged in the notes.
+VALID EXAMPLE (decoded cell): example-skin
+INVALID EXAMPLES: example skin; a/b; an ID longer than 128 characters.
+
+COLUMN 02: account_name
+TYPE: TEXT
+REQUIRED: yes; empty is prohibited.
+VALUE: Official display name of this buying/contact unit. For a provisional separate account use the verified branch/operator name.
+RELATION: Every row with the same account_id MUST have exactly the same decoded account_name.
+VALID EXAMPLE (decoded cell): Example Skin, "Étoile"
+INVALID EXAMPLES: unknown used as a placeholder; invented parent company; inconsistent names for one account_id.
+
+COLUMN 03: branch_id
+TYPE: ID
+REQUIRED: yes; empty is prohibited.
+VALUE: Stable ID identifying this specific physical clinic, reused in later updates for the same identity.
+RELATION: Unique across the entire file. Distinct branches MUST have distinct IDs, even when they share a brand, website or account. MUST NOT be recycled for a different clinic.
+VALID EXAMPLE (decoded cell): example-skin-camden
+INVALID EXAMPLES: /camden; example skin camden; the same ID on two rows.
+
+COLUMN 04: branch_name
+TYPE: TEXT
+REQUIRED: yes; empty is prohibited.
+VALUE: Official name identifying this branch. Prefer its published location name. If only the brand name is published, keep it and let the verified area/address distinguish the location; do not invent a branch suffix.
+RELATION: Verify against the official branch/location page. A shared brand name does not prove a specific branch was identified in later checks.
+VALID EXAMPLE (decoded cell): Example Skin, "Étoile" - Camden
+INVALID EXAMPLES: invented location name; address substituted for the clinic name; a list of several branches.
+
+COLUMN 05: country_code
+TYPE: COUNTRY
+REQUIRED: yes; empty is prohibited.
+VALUE: Copy the exact country code from RESEARCH INPUTS. The quotes around an input value are notation; they are not part of the decoded cell.
+RELATION: Identical on every row; every physical branch MUST be in this country.
+VALID EXAMPLE (decoded cell, only for a GB scope): GB
+INVALID EXAMPLES: gb; GBR; United Kingdom; a different country's code.
+
+COLUMN 06: city
+TYPE: TEXT
+REQUIRED: yes; empty is prohibited.
+VALUE: Copy the exact city from RESEARCH INPUTS, including spelling, case and accents. The quotes around an input value are notation, not data.
+RELATION: Identical on every row; every physical branch MUST be within this city's requested boundaries. Districts belong in area, not city.
+VALID EXAMPLE (decoded cell, only for a London scope): London
+INVALID EXAMPLES: London, UK; Camden substituted for London; a differently spelled city value.
+
+COLUMN 07: area
+TYPE: TEXT
+REQUIRED: yes; empty is prohibited.
+VALUE: Verified local neighbourhood/district containing the branch. If areas were supplied, use one exact supplied label. Otherwise establish a consistent area vocabulary in the notes.
+RELATION: The address MUST support membership in the chosen area. Use the same label for the same area across all branches. Do not guess a label to fit the scope.
+VALID EXAMPLE (decoded cell): Camden
+INVALID EXAMPLES: Camden|Soho; all areas; an unsupported district or placeholder.
+
+COLUMN 08: address
+TYPE: TEXT
+REQUIRED: yes; empty is prohibited.
+VALUE: Full verified physical branch address in local format, including postal code when published. Join address lines with comma and space; preserve the published components and local script.
+RELATION: MUST identify this branch inside the specified city/area, not a registered office or another location. No universal country-specific address regex is imposed.
+VALID EXAMPLE (decoded cell; fictional): 1 Example Street, Camden, London
+INVALID EXAMPLES: city name alone; website instead of address; guessed postcode; headquarters address for a different branch.
+
+COLUMN 09: website
+TYPE: URL
+REQUIRED: yes; empty is prohibited.
+VALUE: Official branch/location page, or the verified official clinic homepage when no branch page exists.
+RELATION: Evidence MUST connect the website to the branch. Multiple branches may share one official homepage; that alone does not establish shared buying/contact accounts.
+VALID EXAMPLE (decoded cell; fictional): https://example-skin.example/locations/camden
+INVALID EXAMPLES: www.example-skin.example; a directory listing; https://user:password@example-skin.example; several URLs in one cell.
+
+COLUMN 10: treatment_ids
+TYPE: ID_LIST
+REQUIRED: yes; at least one item.
+VALUE: Exact supplied treatment IDs verified as offered at this physical branch. Use IDs, not treatment names. Organisation-wide availability is insufficient branch evidence.
+RELATION: Every item MUST be in the allowed treatment dictionary and supported by a branch treatment source in the notes.
+VALID EXAMPLE (decoded cell; only if these IDs were supplied): laser-hair-removal|skin-consultation
+INVALID EXAMPLES: Laser hair removal; ["laser-hair-removal"]; laser-hair-removal||skin-consultation; laser-hair-removal|laser-hair-removal; an unlisted ID.
+
+COLUMN 11: account_aliases
+TYPE: ALIAS_LIST
+REQUIRED: no; empty means no verified aliases are supplied.
+VALUE: Verified alternate literal names for the buying/contact unit, without repeating account_name.
+RELATION: Every row with the same account_id MUST have exactly the same sorted alias list. Account aliases MUST NOT serve as evidence that a particular branch was identified.
+VALID EXAMPLE (decoded cell): Example Skin Clinics|Étoile Skin
+INVALID EXAMPLES: N/A; Example*; invented synonyms; empty list items; different alias lists for one account_id.
+
+COLUMN 12: branch_aliases
+TYPE: ALIAS_LIST
+REQUIRED: no; empty means no verified aliases are supplied.
+VALUE: Verified alternate literal names specifically identifying this physical branch, without repeating branch_name.
+RELATION: Do not assign a shared brand/account alias as if it identified one branch. Keep ambiguous names in review notes.
+VALID EXAMPLE (decoded cell): Example Camden Clinic
+INVALID EXAMPLES: shared brand alias that could refer to several branches; a regex; a URL; guessed nicknames.
+
+END CSV DATA CONTRACT
+
+FICTIONAL SERIALIZATION EXAMPLE
+The following two rows illustrate the byte/column structure, shared accounts, quote escaping, Unicode text, pipe lists and empty optional cells. They are not research evidence. Never copy these businesses, addresses, URLs, treatments or locations into your actual directory. Your actual city/country/treatment values MUST come from RESEARCH INPUTS.
+BEGIN FICTIONAL CSV EXAMPLE
+account_id,account_name,branch_id,branch_name,country_code,city,area,address,website,treatment_ids,account_aliases,branch_aliases
+"example-skin","Example Skin, ""Étoile""","example-skin-camden","Example Skin, ""Étoile"" - Camden","GB","London","Camden","1 Example Street, Camden, London","https://example-skin.example/locations/camden","laser-hair-removal|skin-consultation","Example Skin Clinics|Étoile Skin","Example Camden Clinic"
+"example-skin","Example Skin, ""Étoile""","example-skin-soho","Example Skin, ""Étoile"" - Soho","GB","London","Soho","2 Example Street, Soho, London","https://example-skin.example/locations/soho","skin-consultation","Example Skin Clinics|Étoile Skin",""
+END FICTIONAL CSV EXAMPLE
+
+EXPORT VALIDATION
+After researching, build the data records first and export them with a CSV writer/file tool if available; avoid assembling comma-separated text by hand. Reopen the resulting CSV using a CSV reader and verify S01-S10 and every column rule. Check the decoded values against the research inputs and evidence. If you cannot execute a validator, say so in research-notes.md rather than claiming automated validation passed. A failed check MUST be corrected before describing the file as ready to import. If no candidate meets all required facts, report that and provide only the exact header for review; do not fabricate rows or describe a header-only file as importable.
+
+REVIEW FILE: research-notes.md
+Keep supporting research outside the CSV, linked by the same branch_id/account_id:
+1. Scope and coverage: searched areas, search terms/languages, source types, dates, limits and gaps. Describe coverage honestly; do not claim exhaustive coverage without evidence.
+2. Evidence table: branch_id, official location/address source URL, branch treatment source URLs, any cross-check URL, date accessed, and contradictions or unresolved facts.
+3. Account relationships: account_id, member branch IDs, evidence for the shared buying/contact unit, or the explicit 'provisional separate account - relationship unconfirmed' reason.
+4. Excluded/incomplete candidates: name/location, source URL when available, missing required facts or exclusion reason. Include unresolved duplicate/grouping decisions for my review.
+5. Updates to an earlier file: retained IDs, additions, proposed identity changes and all missing previous branches with reasons. If an omission or grouping needs my decision, ask before describing the directory as ready to import.
+6. Treatment dictionary and area vocabulary used, so I can configure the application's later checks with the same IDs and local wording.
+
+FINAL SELF-CHECK
+Check the exact header, 12-cell rows, mandatory values, consistent city/country, allowed treatment IDs, stable unique IDs, duplicate locations, identical account metadata within each account, supported aliases and source evidence. Never hide research uncertainty behind a valid-looking CSV. Return clinics.csv and research-notes.md as separate files. If file attachments are unavailable, provide their contents in two clearly labelled code blocks; only the CSV block contents belong in clinics.csv. Tell me what still needs review before import.

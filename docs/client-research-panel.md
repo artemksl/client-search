@@ -1,0 +1,22 @@
+# Client research
+
+Open **Client research** in the standalone panel at `http://127.0.0.1:8766/visibility-testing#clientResearch` (start the server with `./run.sh`). The **Visibility runner** section contains platform tests and saved run controls. Create a workspace for one city and country, then import a complete clinic CSV using the [directory format](client-search-directory-format.md) and [template](examples/client-search-directory-template.csv).
+
+If another app uses port 8766, leave it running and start this panel with `./run.sh --port 8767`. Open `http://127.0.0.1:8767/visibility-testing#clientResearch` instead.
+
+When creating a city workspace, choose **Country** once from the dropdown. Each entry shows its name and two-letter code, such as **United Kingdom (GB)**. The selection saves both values; the directory CSV must use that same country code.
+
+To have an AI chatbot compile the file, open **Import directory** and choose **Research prompt** beside **Download CSV template**. Specify treatments using `treatment-id = treatment name`, and optionally list the areas. **Copy research prompt** generates and copies the city-specific prompt in one click; **Create research prompt** lets you preview and download it. If automatic copying is unavailable, the prompt is selected for manual copying. It includes a strict column-by-column data contract: types, required values, allowed syntax, blank/list rules, valid/invalid examples and a fictional worked CSV. It asks for a separate source/review file. Attach your previous CSV to the chatbot for updates, then review the sources and branch relationships before uploading its CSV.
+
+The file supplies stable account and branch IDs. An account is the buying/contact unit; a branch is a physical clinic. Repeat an account ID for its branches. The importer preserves these relationships and does not infer mergers from names or shared websites.
+
+1. **Import directory** uploads selected file bytes and previews added, changed, retired and returning IDs. Review the preview, then import. Omitted records become inactive; contact history remains. Reimporting unchanged content creates no new directory revision.
+2. **Configure questions** confirms local treatment wording and selects area/treatment pairs. Edit saved question templates for the workspace language. Identification uses different source and judge chatbots. Recommendation checks use ChatGPT, Gemini and browser Copilot with the seven approved profiles.
+3. **Check now** previews the exact work and message counts before **Start checks**. Identification asks about each named branch, then separately judges the source answer. Recommendation questions are unbranded and shared across clinics in each selected area/treatment pair.
+4. Expand an account to see individual branch results, coverage and evidence. **P1** requires explicit inability to identify plus complete checks without recommendations. **P2** requires identification plus that same complete absence. **P3** has a current affirmative recommendation. Unclear, failed or stale checks remain separate states.
+5. **Contacts and history** saves account contacts, notes, contact already performed elsewhere and received replies. Phone, SMS and WhatsApp numbers require an explicit international `+country` code. Contacts begin unverified. The default queue excludes contacted and suppressed accounts; **All accounts** shows them.
+6. **Schedule settings** separately previews and enables recommendation checks every 72 hours. The computer and local server must be running. Missed periods produce one current check when service resumes. Scope changes pause the schedule for review. Pausing does not cancel already admitted work.
+
+**Refresh identification** is a separate manual action. Identification expires after 30 days by default; recommendation evidence expires after 144 hours. The evidence drawer retains complete answers, judgments, grounded quotes, provider/profile and frozen revisions. **Flag for review** excludes evidence from priority eligibility without editing it.
+
+**View latest check** shows progress and links to each admitted identification or recommendation run. **Open identification run** or **Open recommendations run** selects that exact run in Visibility runner, with its existing Resume, Refetch, Cancel and correlated verification actions. A failed check is not proof that a clinic is absent. Importing or reading the panel starts no browser work and enables no schedule.

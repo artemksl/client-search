@@ -1,0 +1,37 @@
+[
+  {
+    "id": "ortemksl_personal",
+    "display_name": "Routine profile 1",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_1"
+  },
+  {
+    "id": "ortemksl_finance",
+    "display_name": "Routine profile 2",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_2"
+  },
+  {
+    "id": "sokr4r3",
+    "display_name": "Routine profile 3",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_3"
+  },
+  {
+    "id": "kysil_work",
+    "display_name": "Routine profile 4",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_4"
+  },
+  {
+    "id": "loggedin_1",
+    "display_name": "Routine profile 5",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_5"
+  },
+  {
+    "id": "loggedin_2",
+    "display_name": "Routine profile 6",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_6"
+  },
+  {
+    "id": "loggedin_3",
+    "display_name": "Routine profile 7",
+    "chrome_directory": "REPLACE_WITH_DIRECTORY_7"
+  }
+]

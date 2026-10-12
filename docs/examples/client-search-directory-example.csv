@@ -1,0 +1,5 @@
+account_id,account_name,branch_id,branch_name,country_code,city,area,address,website,treatment_ids,account_aliases,branch_aliases
+harbour-skin,Harbour Skin Clinics,harbour-marylebone,Harbour Skin Marylebone,GB,London,Marylebone,"10 Example Street, London W1U 1AA",https://harbour-skin.example,botox|laser,Harbour Skin,Harbour Skin – Marylebone
+harbour-skin,Harbour Skin Clinics,harbour-soho,Harbour Skin Soho,GB,London,Soho,"20 Example Street, London W1D 1AA",https://harbour-skin.example,botox,Harbour Skin,Harbour Skin – Soho
+luma-franchise-north,Luma Skin Camden Operator,luma-camden,Luma Skin Camden,GB,London,Camden,"30 Example Road, London NW1 1AA",https://luma-skin.example,laser,,Luma Skin – Camden
+luma-franchise-south,Luma Skin Brixton Operator,luma-brixton,Luma Skin Brixton,GB,London,Brixton,"40 Example Road, London SW9 1AA",https://luma-skin.example,botox|laser,,Luma Skin – Brixton

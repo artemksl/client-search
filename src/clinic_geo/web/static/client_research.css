@@ -1,0 +1,88 @@
+#client-research-root { display: grid; gap: 24px; min-width: 0; }
+#client-research-root > * { min-width: 0; }
+#client-research-root h2, .cr-dialog h2 { margin: 0; font-size: 20px; }
+#client-research-root h3, .cr-dialog h3 { margin: 0 0 8px; font-size: 15px; }
+#client-research-root p, .cr-dialog p { max-width: 78ch; line-height: 1.5; }
+.cr-toolbar, .cr-actions, .cr-pagination { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+.cr-toolbar { align-items: end; }
+.cr-toolbar > label { min-width: 260px; flex: 1; }
+.cr-toolbar > button { margin-bottom: 0; }
+.cr-setup { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(200px, .7fr); gap: 24px 32px; border: 1px solid var(--line); border-radius: 24px; padding: 28px; background: var(--surface); }
+.cr-setup p { margin: 5px 0; color: var(--muted); font-size: 13px; }
+.cr-setup .cr-actions { grid-column: 1 / -1; }
+.cr-schedule-info { border-left: 1px solid var(--line); padding-left: 24px; }
+.cr-filters { display: grid; grid-template-columns: repeat(4, minmax(150px, 1fr)); gap: 12px; align-items: end; }
+.cr-filters label, .cr-toolbar label, .cr-dialog label { display: grid; gap: 6px; color: var(--muted); font-size: 13px; }
+.cr-filters input, .cr-filters select, .cr-toolbar select, .cr-dialog input:not([type=checkbox]), .cr-dialog select, .cr-dialog textarea { width: 100%; min-width: 0; }
+.cr-filters input { min-height: 38px; }
+.cr-account-panel { border: 1px solid var(--line); border-radius: 24px; padding: 28px; background: var(--surface); }
+.cr-account-panel > .cr-help { margin-top: 8px; }
+.cr-help { font-size: 13px; color: var(--muted); }
+.cr-table-scroll { overflow-x: auto; margin: 24px -28px 0; }
+.cr-account-table { width: 100%; min-width: 820px; border-collapse: collapse; table-layout: fixed; }
+.cr-account-table th, .cr-account-table td { text-align: left; vertical-align: top; border-top: 1px solid var(--line); padding: 14px 12px; overflow-wrap: anywhere; }
+.cr-account-table th { font-size: 12px; font-weight: 600; color: var(--muted); }
+.cr-account-table th:first-child, .cr-account-table td:first-child { padding-left: 28px; width: 22%; }
+.cr-account-table th:nth-child(2) { width: 24%; }
+.cr-account-table td { font-size: 13px; }
+.cr-account-table td small { display: block; margin-top: 6px; color: var(--muted); line-height: 1.5; }
+.cr-account-table td:first-child > button { border: 0; padding: 0; background: transparent; box-shadow: none; color: var(--blue); font-weight: 600; text-align: left; line-height: 1.5; }
+.cr-priority { line-height: 1.5; font-size: 13px; }
+.cr-p1 { color: var(--amber); } .cr-p2 { color: var(--blue); } .cr-p3 { color: var(--green); }
+.cr-warning { color: var(--amber) !important; }
+.cr-error { color: var(--red); background: var(--danger-soft); border: 1px solid var(--red); padding: 12px 16px; border-radius: 8px; white-space: pre-wrap; }
+.cr-empty { margin: 20px 0; color: var(--muted); line-height: 1.6; }
+.cr-empty-start { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin: 0; padding: 48px; border: 1px solid var(--line); border-radius: 28px; background: var(--surface); }
+#client-research-root .cr-empty-start h2 { color: var(--ink); font-size: 26px; font-weight: 500; }
+.cr-empty-start p { max-width: 65ch; font-size: 15px; }
+.cr-empty-start .cr-actions { gap: 24px; margin-top: 6px; }
+.cr-empty-start a { text-underline-offset: 3px; }
+.cr-pagination { justify-content: flex-end; padding-top: 18px; }
+.cr-pagination > span { margin-right: auto; color: var(--muted); font-size: 13px; }
+.cr-branch-row > td { background: var(--surface-soft); }
+.cr-branches { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; margin-bottom: 18px; }
+.cr-branch { border-left: 1px solid var(--line-strong); padding-left: 16px; }
+.cr-branch p { margin: 5px 0 10px; }
+.cr-signals { color: var(--muted); }
+.cr-branch > button { margin: 4px 8px 0 0; }
+.cr-dialog { width: min(720px, calc(100vw - 32px)); max-height: calc(100dvh - 40px); padding: 32px; overflow-y: auto; border: 0; border-radius: 28px; background: var(--surface); color: var(--ink); box-shadow: var(--floating-shadow); }
+.cr-dialog::backdrop { background: var(--scrim); }
+.cr-dialog-head { display: flex; justify-content: space-between; gap: 20px; align-items: center; margin-bottom: 16px; }
+.cr-dialog > .cr-help { margin-bottom: 24px; font-size: 14px; }
+.cr-dialog-content { display: grid; gap: 18px; }
+.cr-form { display: grid; gap: 18px; }
+.cr-form-fields { display: grid; gap: 16px; }
+.cr-dialog fieldset { border: 1px solid var(--line); border-radius: 12px; padding: 20px; display: grid; gap: 12px; min-width: 0; }
+.cr-dialog legend { padding: 0 6px; font-size: 14px; }
+.cr-dialog label.cr-checkbox { display: flex; align-items: start; gap: 10px; color: var(--ink); }
+.cr-checkbox input { flex: 0 0 auto; margin: 3px 0 0; }
+.cr-dialog details, .cr-research-template { border-top: 1px solid var(--line); padding-top: 12px; }
+.cr-dialog details label, .cr-research-template > label { margin-top: 16px; }
+.cr-research-template > .cr-actions, .cr-research-template > .cr-form-fields { margin-top: 16px; }
+.cr-dialog summary { cursor: pointer; color: var(--blue); line-height: 1.5; }
+.cr-dialog pre { max-height: 430px; overflow: auto; white-space: pre-wrap; overflow-wrap: anywhere; background: var(--code-bg); padding: 16px; border-radius: 6px; font-size: 12px; line-height: 1.5; }
+.cr-evidence-text { color: var(--ink); }
+.cr-import-preview { display: grid; gap: 14px; }
+.cr-import-explanation { display: grid; gap: 12px; }
+.cr-import-explanation p { margin: 0; font-size: 14px; }
+.cr-dialog input[type=file] { padding: 16px; background: var(--surface-soft); }
+.cr-dialog input[type=file]::file-selector-button { margin-right: 12px; padding: 8px 16px; border: 1px solid var(--line); border-radius: 999px; background: var(--surface); color: var(--blue); font: inherit; cursor: pointer; }
+.cr-dialog input[type=file]::file-selector-button:hover { background: var(--blue-soft); }
+.cr-dialog input:focus-visible, .cr-dialog textarea:focus-visible, .cr-dialog select:focus-visible, #client-research-root button:focus-visible, .cr-dialog button:focus-visible { outline: 2px solid var(--blue); outline-offset: 3px; }
+@media (max-width: 950px) { .cr-filters { grid-template-columns: repeat(2, minmax(140px, 1fr)); } }
+@media (max-width: 800px) { .cr-setup { grid-template-columns: 1fr; } .cr-schedule-info { border-left: 0; padding: 20px 0 0; border-top: 1px solid var(--line); } }
+@media (max-width: 600px) {
+  #client-research-root { gap: 20px; }
+  .cr-filters { grid-template-columns: 1fr; }
+  .cr-toolbar { gap: 12px; }
+  .cr-toolbar > label { min-width: 0; flex-basis: 100%; }
+  .cr-dialog { padding: 24px; border-radius: 24px; }
+  .cr-dialog-head { align-items: flex-start; gap: 12px; }
+  .cr-dialog button { white-space: normal; }
+  .cr-empty-start, .cr-setup, .cr-account-panel { padding: 24px; border-radius: 24px; }
+  #client-research-root .cr-empty-start h2 { font-size: 22px; }
+  .cr-empty-start .cr-actions { gap: 16px; }
+  .cr-table-scroll { margin-inline: -24px; }
+  .cr-account-table th:first-child, .cr-account-table td:first-child { padding-left: 24px; }
+  .cr-branches { grid-template-columns: minmax(0, 1fr); }
+}

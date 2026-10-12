@@ -1,0 +1,813 @@
+{
+  "schema_version": "client_search.export.v1",
+  "export_date": "2026-10-12",
+  "description": "Fresh source snapshot; no original Git history or runtime records.",
+  "adaptations": {
+    "tests/test_client_research_panel_ui.py": "Uses the extracted isolated _browser fixture.",
+    "docs/client-research-panel.md": "Standalone startup command and port; original main console reference removed.",
+    "src/clinic_geo/workflows/free_audit/contracts_v2.py": "Loads unchanged static prompt/geography catalogs from resources/ rather than runtime data/.",
+    "tests/test_client_research_api.py": "HTTP boundary test uses the standalone Handler and its root redirect to the packaged panel."
+  },
+  "source_files": [
+    {
+      "path": "config/launch_logged_in.sh",
+      "source_sha256": "7749cc6b95187372bf1e50ec57487b4b72640000d222d02641310bd7e8c51090"
+    },
+    {
+      "path": "config/profile_anchor.html",
+      "source_sha256": "e8066beb6688314f7069155338531d2672f3a7be7ba60f73abdf58133234ef1a"
+    },
+    {
+      "path": "docs/client-research-panel.md",
+      "source_sha256": "a03d71ca18d7b9a72f7607d52f9bae2859186f6a6a8b29771f1aac56708179ce"
+    },
+    {
+      "path": "docs/client-search-directory-format.md",
+      "source_sha256": "92af6c1e993ba6781a6ed875f744fb7cd3da0e9cb66ad377d36b18693d13d6e4"
+    },
+    {
+      "path": "docs/examples/client-search-directory-example.csv",
+      "source_sha256": "7fdba16bdd749f4a998859bc03f14eb02d3c1bf6151d65b04c634ad73dfefa69"
+    },
+    {
+      "path": "docs/examples/client-search-directory-template.csv",
+      "source_sha256": "1c0aed19d1d94a27922fb049db441abc86d20dde6273330572930c0cee25f8d6"
+    },
+    {
+      "path": "scripts/run_visibility_measurement.py",
+      "source_sha256": "9fc73cb755404d11bf502975184a0c9229a5f331e07b851a4788ab5a455d571c"
+    },
+    {
+      "path": "scripts/validate_client_search_directory.py",
+      "source_sha256": "16d5078fbf095fb5a9ebe622e030997fe13c9f37393527442e6bdcfabb66d009"
+    },
+    {
+      "path": "src/clinic_geo/__init__.py",
+      "source_sha256": "d3ac2bb76af7b5871e5cb97c874c1e0ff83c8f437031ead833cc79e576eb6f24"
+    },
+    {
+      "path": "src/clinic_geo/browser/__init__.py",
+      "source_sha256": "0454970f3d125cb402d6452c8870139572b1f1907b9c6d3a996caae6137ab902"
+    },
+    {
+      "path": "src/clinic_geo/browser/ai_platforms.py",
+      "source_sha256": "7bd826256a5c8ac52da8f9d2f34a95bf11a533ab1fca0f43d7a21d015699462a"
+    },
+    {
+      "path": "src/clinic_geo/browser/browser_health.py",
+      "source_sha256": "433c8452cefaf94a439b3eb9f6dfca361a84dfd49b9ce52b38a2f1c93f841340"
+    },
+    {
+      "path": "src/clinic_geo/browser/browser_lifecycle.py",
+      "source_sha256": "e4c057597a94b5e19337b62cd16f2a300f70eab98131d0e6d67726db6fddf101"
+    },
+    {
+      "path": "src/clinic_geo/browser/chat_engine.py",
+      "source_sha256": "190847d40f51ec6abac3c075721366f80cc5f9dd051c9c6bb8a1f84b73f15874"
+    },
+    {
+      "path": "src/clinic_geo/browser/human_input.py",
+      "source_sha256": "2c70cde8581e0fc0c43c2e9d22d4d856dd9e9aa141c0ae2a60b6c46eb7dab035"
+    },
+    {
+      "path": "src/clinic_geo/browser/profile_pool.py",
+      "source_sha256": "6ed9ce6a90fb132996e3f85caf8dd4790271ed671ef3b53abd3887d6b668ac27"
+    },
+    {
+      "path": "src/clinic_geo/browser/prompt_timing.py",
+      "source_sha256": "36668beb970eca85727b3f9c96933d73b3e18f86e80db3f95e659ca853d7358b"
+    },
+    {
+      "path": "src/clinic_geo/browser/set_vpn.py",
+      "source_sha256": "46ffe5f3fda636097cf2dd84e4463d9658e7e707d63c5d7068a675944d6a3a05"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/__init__.py",
+      "source_sha256": "a40d1ba330041b2013666bbecf88d582ec46d3091e7fa36172df71b40ece755b"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/api_store.py",
+      "source_sha256": "1fa6d0bf1ebe0022eec2ed93c6824b54304924af2bfbe78c41f57e3d52969ff5"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/completion.py",
+      "source_sha256": "30a41c9a8da9dc225c3bb541ac95d56ce033420e834fdce56cad801413b7a5e1"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/contracts.py",
+      "source_sha256": "786cff4fa11283dbf13a9fa6db1fd100bbbb613f204ec04c332ad80972311f1e"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/read_models.py",
+      "source_sha256": "61e2f21b2a335f6bbb2ad31c38af59b3614c6b9935201568e6b5c815291b3a40"
+    },
+    {
+      "path": "src/clinic_geo/campaigns/runtime.py",
+      "source_sha256": "8a4f1d51a0c7bea7bedac5546b1e938391bc57e4fa100498cf692d34228ff3f5"
+    },
+    {
+      "path": "src/clinic_geo/crawler_registry/__init__.py",
+      "source_sha256": "78121c4a167c2fe68ddd26d4cc8a8049234814f17d8b2c3d80a750f2fb38d0ca"
+    },
+    {
+      "path": "src/clinic_geo/crawler_registry/engine_projection.py",
+      "source_sha256": "55d0728554bcc73d120855e1aa9e4242f842b7897eb99184a63dcb300d418e8a"
+    },
+    {
+      "path": "src/clinic_geo/crawler_registry/schema.py",
+      "source_sha256": "df919e32969e0ad6bb1662f371018e9ed2969cf5af865d8ba0af4133c3cca400"
+    },
+    {
+      "path": "src/clinic_geo/crawler_registry/store.py",
+      "source_sha256": "4c16a0197a4398370ac57c3a45cb3aac755759c35a0463aa3c876fbe80e2dc58"
+    },
+    {
+      "path": "src/clinic_geo/eligibility_contracts.py",
+      "source_sha256": "9ba705333a4afffcd601eadad49b2af577ef06b08f81e2b657106cfd2a9723b3"
+    },
+    {
+      "path": "src/clinic_geo/env.py",
+      "source_sha256": "4dcad1f92f9db7b8dd491f0cf990980a45b32e2ff4673cebc99276c29a2985cd"
+    },
+    {
+      "path": "src/clinic_geo/evidence/__init__.py",
+      "source_sha256": "13471eb3ad621f1ac62d3c5945960c16c879243512bec4da410a387eea3aa0b4"
+    },
+    {
+      "path": "src/clinic_geo/evidence/purpose.py",
+      "source_sha256": "f3c344c58ddd5c6aa225519422aaeb20dd518d4c1d64a66f102893c284afad5a"
+    },
+    {
+      "path": "src/clinic_geo/execution/__init__.py",
+      "source_sha256": "cdebd15c40d8a96241e087c8b29b8bb9208514a8b306c65071759585264ad8af"
+    },
+    {
+      "path": "src/clinic_geo/execution/chrome_clean_start.py",
+      "source_sha256": "f09d3f8aae9ce9f4ac56e45c691a4d913df73ef5ac1198791e719b24a3c3e6a9"
+    },
+    {
+      "path": "src/clinic_geo/execution/client_research_admission.py",
+      "source_sha256": "2a445578e2fdeffcc3fcc0b141dbaf69f08f0c608d7455b1f5a9bce9d7b8ad0e"
+    },
+    {
+      "path": "src/clinic_geo/execution/copilot_settings.py",
+      "source_sha256": "ee4b02ac177146b1c3650b9712218a80a07b78a664e6a90c10ec1a460424922d"
+    },
+    {
+      "path": "src/clinic_geo/execution/measurement_browser.py",
+      "source_sha256": "fbdc8f1626198c6bfd1e0398ec1da43fac809c1d2cefb00a5794232bf19b8545"
+    },
+    {
+      "path": "src/clinic_geo/execution/measurement_inputs.py",
+      "source_sha256": "6cba40edad0fa1765c857da9136b5ccbc3655ca3fd7a282d3e29d186ab7a4d73"
+    },
+    {
+      "path": "src/clinic_geo/execution/measurement_platforms.py",
+      "source_sha256": "07ec14a9d21679f46c790d8945a034ea81f92ad8b2678298f7ab20949383cdae"
+    },
+    {
+      "path": "src/clinic_geo/execution/worker_registry.py",
+      "source_sha256": "7234f84b6c2e815cf25b0818b5bc23d397b435ec199f8dac098bbdf0701d8b66"
+    },
+    {
+      "path": "src/clinic_geo/integrations/__init__.py",
+      "source_sha256": "bffed2ca9a204703c5f7e1ec73f6a507baa3b9f0fb1d95518cbf3b7c9dd29200"
+    },
+    {
+      "path": "src/clinic_geo/integrations/client_research_selection.py",
+      "source_sha256": "4e9d12558336dc0a369241750ad44c76075448322f16b4dd6d0d2609ca0be6c5"
+    },
+    {
+      "path": "src/clinic_geo/integrations/visibility_runner.py",
+      "source_sha256": "e30c2b393ea7db5f1183ee519072c9ed02aa5e95b947d864857ae4d0e2596d54"
+    },
+    {
+      "path": "src/clinic_geo/integrations/visibility_selection.py",
+      "source_sha256": "a5c80afb9cd87eade003223f5bff6df5c92d1b9083aee2d3cd29bf97daedabb3"
+    },
+    {
+      "path": "src/clinic_geo/integrity.py",
+      "source_sha256": "a4a536b3c0d47156cfb0c18f5644508675d59de5b33777e1ae8f0da0919bb3f6"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/__init__.py",
+      "source_sha256": "64a48c8c705bc2f3f16fec60c2e50cbeeb105333ea0dcc0a06d2ae816a277016"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/classification.py",
+      "source_sha256": "17995bd3967df201456d2c2141d05872e97cd236f2ae3288c3168edab7309635"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/contracts.py",
+      "source_sha256": "beb51a3774f6f9641dc7dd6f81045d9ee96d2d2cc8cee28c7feb7131467f51a6"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/costing.py",
+      "source_sha256": "6dee6a986be95e3ba368dc626033b709d479e297ec32d384e340502a2ec41177"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/eligibility.py",
+      "source_sha256": "eedfa243ee133dfe49b8ad644dbae657237fa02fce835dbb3297e968876346f5"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/jobs.py",
+      "source_sha256": "42e8c18e17ddcf9c86c0f95fbaf108838a4bed79e4868e35768e31274b207b38"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/jobs_read_models.py",
+      "source_sha256": "818f32b8c3bf07ede5536eef6fbc308ed0abc425a92a5f57ad8abeac2303d90b"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/occurrences.py",
+      "source_sha256": "062d8c4fd451507f5a8326b97b8261c73b2968fcd02536efc7c699a78c6bf5be"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/planner.py",
+      "source_sha256": "a5ce3fbb803d253e21cb8897e0809bc2af564f3b45495a76d6b336ceef11e398"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/projection.py",
+      "source_sha256": "a8d4d29fba39eca8855a0f13f7c3dd5fbb9af2c476acad853ba6d84d4b235e43"
+    },
+    {
+      "path": "src/clinic_geo/market_evidence/prompt_rendering.py",
+      "source_sha256": "f2680799521e0dccfe1a98bb74bbc0ef2894d4e9f23eb026fbcc9335b876cb3f"
+    },
+    {
+      "path": "src/clinic_geo/outreach/__init__.py",
+      "source_sha256": "e3b64ca2661a97a0be583c19d23ad046f7e9cd1f5a568fba01017eacddd5d81e"
+    },
+    {
+      "path": "src/clinic_geo/outreach/api.py",
+      "source_sha256": "b3dc1fb437f690fb4f015390a69df3360178e05945768e0b107d94942133fab0"
+    },
+    {
+      "path": "src/clinic_geo/outreach/branch_backfill.py",
+      "source_sha256": "502cefb2dc02463505b4e053f288cde5c474fd8cbfe83158eb5b567d5a509d63"
+    },
+    {
+      "path": "src/clinic_geo/outreach/branching.py",
+      "source_sha256": "f8b36685df0096bf2c4b96814f08521d8187b0b6bba7aa8334fd682fb2529c05"
+    },
+    {
+      "path": "src/clinic_geo/outreach/client_research_assessment.py",
+      "source_sha256": "3e492782f4ad9c7082f10183956f60a1dd533b866881b2566854c7bc48ca4e49"
+    },
+    {
+      "path": "src/clinic_geo/outreach/client_research_service.py",
+      "source_sha256": "aa860216ec39df84dea921d33d0743c7739ec45881f1389832fffadbf2ee6577"
+    },
+    {
+      "path": "src/clinic_geo/outreach/client_research_store.py",
+      "source_sha256": "7f0eebc888a8b0d1995fc61d6b94baaea35d29b821a38064c5021a12006780ea"
+    },
+    {
+      "path": "src/clinic_geo/outreach/db.py",
+      "source_sha256": "bdfd440fded99493babf096970744fdfdc601f8737a76fc2a7ff83d6d0fe1fe7"
+    },
+    {
+      "path": "src/clinic_geo/outreach/importer.py",
+      "source_sha256": "1199314e2cf61ba3f39ab7bb622c13183f680159f54d76a7853283cbfea668fd"
+    },
+    {
+      "path": "src/clinic_geo/outreach/interaction_records.py",
+      "source_sha256": "b921f546619d979e72ea0e8663fe7a3144573a20df73cb06141d34d424ee1691"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/001_initial.sql",
+      "source_sha256": "b18bb987ace7902f9bbd5b6b319d324a51a7f5d5155d6818bf9d1643f1e9088e"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/002_indexes.sql",
+      "source_sha256": "fc69d15b2a282243339d193d36ea231fc3a73bb30b120726229bb08ef01f8d94"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/003_readiness_lanes.sql",
+      "source_sha256": "49a2f7850879866fa8954aa9114690ab9961d8c3dbba601ba05955e6227cb17f"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/004_retire_internal_sales_management.sql",
+      "source_sha256": "e03e9ae808f96e441f052dd205fdc23a4a6dc3884c7232c93029f4033c6da2a9"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/005_branches_and_treatments.sql",
+      "source_sha256": "2bd715f41938ca8d20acab851cd0c4f104874eb328df1aa1f0fe330b3de78139"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/006_branch_scoped_outreach.sql",
+      "source_sha256": "e86f757a4658539289d5d4a840465d2172921818ef9e72088f13ac4debd63259"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/013_client_search_workspace.sql",
+      "source_sha256": "ded97ef6518f35102cd4bf594cc11fc5abac1a49ed8e2558e183d8b974cd4a22"
+    },
+    {
+      "path": "src/clinic_geo/outreach/migrations/__init__.py",
+      "source_sha256": "a89dece8b019578cda01534abf262652931a375c5ef377fea9385a2ee890b674"
+    },
+    {
+      "path": "src/clinic_geo/outreach/models.py",
+      "source_sha256": "cbaffd06e85685c63b4a240f1b44601dba256899c18cc1c31cf045100746cae3"
+    },
+    {
+      "path": "src/clinic_geo/outreach/policy.py",
+      "source_sha256": "e1e6c7add53a8ed289f83026f729aeab85d4e2d6419be074aa226032e9e3d4f1"
+    },
+    {
+      "path": "src/clinic_geo/outreach/readiness.py",
+      "source_sha256": "81c5da4fbc97c287904ed3cc6d89d01677a7a4a48794b795732f9216bcf0c829"
+    },
+    {
+      "path": "src/clinic_geo/outreach/scope_options.py",
+      "source_sha256": "61f11f420ae292c6d11b5170e8fe3a1980e1637a1f1beb432dff914888e8a86b"
+    },
+    {
+      "path": "src/clinic_geo/outreach/service.py",
+      "source_sha256": "e8358407dd94c07c3b9385fa176467072a347d917b401815ffcf76ee0f93255d"
+    },
+    {
+      "path": "src/clinic_geo/outreach/snapshot_catalog.py",
+      "source_sha256": "82436d97d28b2685577a79a9dcac7984002a8bf074c7b4633cb1565d438edd71"
+    },
+    {
+      "path": "src/clinic_geo/outreach/supplied_directory.py",
+      "source_sha256": "64018156a02733cbb7423ebbaab86f9970f78408ceb2568994cdd22ac5aa19a7"
+    },
+    {
+      "path": "src/clinic_geo/outreach/visibility_evidence.py",
+      "source_sha256": "989aa035f636ef9d620b38470515205ecc5f47019e1a28b71e0727de1749dd04"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/007_treatment_catalog_releases.sql",
+      "source_sha256": "ddb07ce125429b0d3958ef643e7e591ecef826bdc80643121ff6df8097d6dddc"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/008_query_geographies_and_campaigns.sql",
+      "source_sha256": "88c0fdd2764a41760d09d662478239a3f972d440138a2060f0544d2d89bbadb4"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/009_market_evidence_ledger_and_jobs.sql",
+      "source_sha256": "6a972708693b450983db6fa99e04b407551a298d9d439dc4dc32022af9932dec"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/010_processing_projection_treatment_review.sql",
+      "source_sha256": "85c471022a61021e431c3951aea6ab9d7f1bca27567fa1aef8fde4d6b3f603f4"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/011_campaign_runtime.sql",
+      "source_sha256": "9c16fcde128bd895949b652539e7fcc455d733c1e9b10a176670f51b776c855a"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/012_market_raw_response_segments.sql",
+      "source_sha256": "ce4443488d0e096549cad3f4485a872b5e2135a0bf656908237bfc9ccbf62d0e"
+    },
+    {
+      "path": "src/clinic_geo/outreach/wp2_migrations/__init__.py",
+      "source_sha256": "c7868e680139dcf2d6fd1c09a6b03536e1018e0ebaaf025d87207e3003fdc368"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/__init__.py",
+      "source_sha256": "f6b513b448143971491e6aa75f1464d977f784441664f3012153488267058af5"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/api.py",
+      "source_sha256": "1bb77cb067c04390c27c7f6e11ce5824207994be1a88b140e72f67c2a7d6b34a"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/ledger.py",
+      "source_sha256": "99d631214192953c0223e9a49152675a7ba0b95f7e2613f511feae89e55d6bac"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/profile.py",
+      "source_sha256": "dcd690dc50558dee0f3aedc186fbffd6ba05a2579ac232b8a089792b7dd8d240"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/results.py",
+      "source_sha256": "7d185d283ff26fee685bba19aad83c8e0a2c4a21f5f476905455775d95f632f8"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/scheduler.py",
+      "source_sha256": "e487ad5d3ce34cb7efa6fdf4e8e64658acfd0220ea1e6ed0e31699336b15d387"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/service.py",
+      "source_sha256": "48c7af266cc7dd2146e458ef0f0165f2597b1f9a667b6e2e3d41b102f2e00929"
+    },
+    {
+      "path": "src/clinic_geo/page_audit/transport.py",
+      "source_sha256": "45c18380fb007078067eadca671e78ae2fda783b3193ef8593a0cd1beb0f6844"
+    },
+    {
+      "path": "src/clinic_geo/parsing/__init__.py",
+      "source_sha256": "4114ff417a4d5907a62071277132bc21df90ffeee94a5347b612920d0079e04a"
+    },
+    {
+      "path": "src/clinic_geo/parsing/answer_files.py",
+      "source_sha256": "ec213edb9e0078093f5f292b91162105d0df6f1d7cb2e256ace12a378b733320"
+    },
+    {
+      "path": "src/clinic_geo/parsing/clinic_names.py",
+      "source_sha256": "9192c1970f0b6fc24b45b3be69c7050366613020bbcfe3d2637691e81f493cb3"
+    },
+    {
+      "path": "src/clinic_geo/parsing/prompt_sets.py",
+      "source_sha256": "9b5a38915de7a188f37d1cc3da1e9fc3f6d41def209ee1ca42bc5b3f901e7073"
+    },
+    {
+      "path": "src/clinic_geo/parsing/treatments.py",
+      "source_sha256": "21cc29ee97cea3d2a88e2e252eefcd3ec54c77ecab6359c5a70bb60c40ccdc35"
+    },
+    {
+      "path": "src/clinic_geo/paths.py",
+      "source_sha256": "5ada1a7b382121b62f0c2f34887dcd88f49dc00f852850b91ce16ad648f30a87"
+    },
+    {
+      "path": "src/clinic_geo/persistence/__init__.py",
+      "source_sha256": "30e3dd70b087f538a93f9ddd6beab5590732101d26eb68b4fbe99b8733eae389"
+    },
+    {
+      "path": "src/clinic_geo/persistence/json_store.py",
+      "source_sha256": "605a414deb6162118076ce6dd8abe3c9579bc542522de5888f336f7b7bca4a0a"
+    },
+    {
+      "path": "src/clinic_geo/persistence/outputs.py",
+      "source_sha256": "098c278a38b3dfd16f8f2829a1a61ba867afe56e48dd3cd790cec847ced5a62f"
+    },
+    {
+      "path": "src/clinic_geo/platforms.py",
+      "source_sha256": "565542f3ac7d122168f4797966f4d04beb3552b42aaad292c539c1403f933458"
+    },
+    {
+      "path": "src/clinic_geo/query_geography/__init__.py",
+      "source_sha256": "a11ddd53c8d9ac1aa028f0743cec25a3c9193b57e4e06e4016794dcb9c532c0c"
+    },
+    {
+      "path": "src/clinic_geo/query_geography/contracts.py",
+      "source_sha256": "d319bd7ff8cae7c2aff57bf93fdf52ae64e6e75185ce97afb3759a4075744b7d"
+    },
+    {
+      "path": "src/clinic_geo/reporting/__init__.py",
+      "source_sha256": "f9a2f8449438d65ef719797de7609db01123bf03b47a7a131100da4e3314dfd7"
+    },
+    {
+      "path": "src/clinic_geo/reporting/client_report_render.py",
+      "source_sha256": "8ea2fb44b5cb413d0901e1434c5ef65eaf0a2fd6304bce78178720718aec7d5f"
+    },
+    {
+      "path": "src/clinic_geo/reporting/copy_policy.py",
+      "source_sha256": "cfb076d05fffbf44c46d0363994defd1147c54d7fcb05d5a1cdb64be2c131f41"
+    },
+    {
+      "path": "src/clinic_geo/reporting/data.py",
+      "source_sha256": "ea2cde3182a8ce19abf4094c9d59be5b4ac0a35f3896905aab6a028405d9cb21"
+    },
+    {
+      "path": "src/clinic_geo/reporting/presentation.py",
+      "source_sha256": "8a631fbb60c1317f1dc99d4f778e7608062b5fe5f7ae9b03a3fbfc636e852850"
+    },
+    {
+      "path": "src/clinic_geo/reporting/renderer.py",
+      "source_sha256": "0bedab955635017290c2412d138e463a8814c21ca378c4b7c45906f1f39da6c7"
+    },
+    {
+      "path": "src/clinic_geo/reporting/template.py",
+      "source_sha256": "52842043581f850be029bb77da8de0fe52c9c62d42dd0cc09ed0c494f046bccd"
+    },
+    {
+      "path": "src/clinic_geo/reporting/visibility_snapshot.py",
+      "source_sha256": "1ef0489a398612e1d1acd7901d072e276c713a32468427e3b7699923fca807d1"
+    },
+    {
+      "path": "src/clinic_geo/stats/__init__.py",
+      "source_sha256": "fba44a43d880e3906be6be887e67ccebb0ab88bbac2eb6161f4aae4793fdbaf1"
+    },
+    {
+      "path": "src/clinic_geo/stats/share_of_voice.py",
+      "source_sha256": "3082871d3f5a0c44a14be384b17a343a382ae36bd1e0a20258d821f931ae04a5"
+    },
+    {
+      "path": "src/clinic_geo/treatment_library/__init__.py",
+      "source_sha256": "d9f4c8d1ab29fd5c112655458956f2f6ebdb5110d692b6a0372f724bbd48e701"
+    },
+    {
+      "path": "src/clinic_geo/treatment_library/catalog.py",
+      "source_sha256": "d4966aa642289dcac376deb6cf6e764a341d266f2b818f4f97a838516279196d"
+    },
+    {
+      "path": "src/clinic_geo/treatment_library/contracts.py",
+      "source_sha256": "85dcf91cd8459209d2fc0db50cdd319d79b529ecec85733be9d985ca8bb86e80"
+    },
+    {
+      "path": "src/clinic_geo/treatment_library/matching.py",
+      "source_sha256": "a252f3142956e7354d162beea29dfb4ab892e520a6853a5ce27902d5e82599d0"
+    },
+    {
+      "path": "src/clinic_geo/treatment_library/read_models.py",
+      "source_sha256": "dba0846eaafa575acf2b1874b0ab4a4f19ce934180ad947736048fb84fbd840a"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/__init__.py",
+      "source_sha256": "b2a3d97f99da35e30cad7fa5900ab282253533a731294af1340c930cec784db7"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/api.py",
+      "source_sha256": "6c818789271b5b27c1bc07ed2bcc5ffcc1cf7ece3a2b0fad86535b8998d331a6"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/calculate_visibility.py",
+      "source_sha256": "3fbe82a52fde05ccc237655c4947922cd4a0b907c0f6ed0ffb226e80fca04022"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/client_research_evidence.py",
+      "source_sha256": "084d880c38301507afe42c776860d9623c448f8c84ea4f4fc26865749be75d29"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/collection_period.py",
+      "source_sha256": "dcaafd26abff59d43ee8bdcf56853c4ef31e5d82fb5d2d67a884b65c71fc8618"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/contracts_v3.py",
+      "source_sha256": "a55fbcb085fbe69e79ba782477d8bbed8663d8f33828288dfaaea3b5659b1d70"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/convert_measurement_results.py",
+      "source_sha256": "a4c07301375269f698249bac0b743fef89ccb93790acc190e5c870b1723e003d"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/create_visibility_report.py",
+      "source_sha256": "5a686296be7aa14ca5ffcf689315fed307c328eb54e662eb9b9c89e377bbd347"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/host_job_artifacts.py",
+      "source_sha256": "bc34a135858ccc37d227fedc6bcaca0f2736cca9fe56a1b8a9b323755a8c462e"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/prepare_report_data.py",
+      "source_sha256": "0fecaaa39e505afedaf9c444b0d9c5b9619cbf9010280d604539d9c4dc34a270"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/report_handoff.py",
+      "source_sha256": "aaebccc9d275a5a00a84834e2fe1943adc4b1aa02b5551499934829e05e227a9"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/report_revisions.py",
+      "source_sha256": "7132308d4804bc82d873b029ad5604bab27a3cdf72e395af52c4d5bd9980f8fe"
+    },
+    {
+      "path": "src/clinic_geo/visibility_reports/report_target.py",
+      "source_sha256": "77dc50eac6f0f8f0ce103baa12c7d15422aee474eb7e6771db12b25b52a5a69b"
+    },
+    {
+      "path": "src/clinic_geo/web/__init__.py",
+      "source_sha256": "15a55b17db845a9ef3df199ef35d66fb4943467b8cbf8c92522581defb8f02ec"
+    },
+    {
+      "path": "src/clinic_geo/web/app.py",
+      "source_sha256": "bce390744242358c22b2436f8e82cf10ed344e1b3922d26a72441755610d096f"
+    },
+    {
+      "path": "src/clinic_geo/web/campaign_api.py",
+      "source_sha256": "cca5ff09f90d8a519fca13a16613096e4003f073043bab1dcf4ea818cbe6d174"
+    },
+    {
+      "path": "src/clinic_geo/web/client_research_api.py",
+      "source_sha256": "3d96bebdc245e799806693333fedcfead3593ef04354079076df77b76bed97b7"
+    },
+    {
+      "path": "src/clinic_geo/web/client_research_execution.py",
+      "source_sha256": "033aa19724fb6b2ead4ea31d47f74ca445b404680d427617167908eba10ce5f3"
+    },
+    {
+      "path": "src/clinic_geo/web/client_research_scheduler.py",
+      "source_sha256": "42b07f8906ad35d53916d686694da88878496855665f9416f8dc51209598d3ee"
+    },
+    {
+      "path": "src/clinic_geo/web/config.py",
+      "source_sha256": "46f11e732e7d1b1304cf6eeae5e29992f753c15fab425afcac6200def1633e33"
+    },
+    {
+      "path": "src/clinic_geo/web/data_browser.py",
+      "source_sha256": "54ebe77656d469883de50c3119e67625c026a164696a0179e4165ead22cacb89"
+    },
+    {
+      "path": "src/clinic_geo/web/jobs.py",
+      "source_sha256": "b0b0dbebd502fb7eb90bd9d837e7564088fcb28cee918f08d1a82a757fee2830"
+    },
+    {
+      "path": "src/clinic_geo/web/outreach_api.py",
+      "source_sha256": "ee7620a645e7e390dabd4d6c7a5c39fe0dd0a90393e76dc0fa9e25fdbe113ebf"
+    },
+    {
+      "path": "src/clinic_geo/web/paid_audit_api.py",
+      "source_sha256": "e3e70292a85636e5b29f87a14c51fc718686bb4ec9d73bc6057e3ce4f3954a07"
+    },
+    {
+      "path": "src/clinic_geo/web/prompt_catalog.py",
+      "source_sha256": "ffe2ad87e6cf6762889b6db0c1fcda9640dcdde9c846a457f50df5ad112b4269"
+    },
+    {
+      "path": "src/clinic_geo/web/record_navigation.py",
+      "source_sha256": "33a9fb46f66d09f4f7cea268c8b3e86afc2c84e9582557315e18f13cb12a6fba"
+    },
+    {
+      "path": "src/clinic_geo/web/snapshot_api.py",
+      "source_sha256": "c21e24c24bc9c137152862830329a4f147e5feb622cd37abe64eaba02da42721"
+    },
+    {
+      "path": "src/clinic_geo/web/snapshot_production.py",
+      "source_sha256": "2952dbd3c10357f500f6bf8c6c436a5c17c3df2c868cc9334972430c6050b764"
+    },
+    {
+      "path": "src/clinic_geo/web/snapshot_report_targets.py",
+      "source_sha256": "aef444dcb14972cb546d21bf39da912ea9fda7cc729d1ea396f41d5452b7d20f"
+    },
+    {
+      "path": "src/clinic_geo/web/start_receipts.py",
+      "source_sha256": "7a5c2a27cb9e4cbedfd18af6406c47e14ec2eb2a9228103b1f8ded718fbc3f54"
+    },
+    {
+      "path": "src/clinic_geo/web/static/app.css",
+      "source_sha256": "77e19bf66441a2d8803c61deeca9297044708df2e1bda81ac2755e320cb7d46d"
+    },
+    {
+      "path": "src/clinic_geo/web/static/client_research.css",
+      "source_sha256": "bea9d186a62bc48041c1bf21b25ba036b4a4892a44ef5fdfcde336e62095d549"
+    },
+    {
+      "path": "src/clinic_geo/web/static/client_research.js",
+      "source_sha256": "56f87d9a6c26584b472cc9396b70b4c57f4ac3e277a8ac045abc0dfa03fad916"
+    },
+    {
+      "path": "src/clinic_geo/web/static/client_research_directory_prompt.txt",
+      "source_sha256": "6cd6dd102bf2eed711960364cc496287987e61a7ac1a551c9814c44725b75c65"
+    },
+    {
+      "path": "src/clinic_geo/web/static/run_workspace.js",
+      "source_sha256": "6a8d4735533fe0f67c032a7c2dab33a51e9925f14ab1ff4c67b2a3fcdcd23e00"
+    },
+    {
+      "path": "src/clinic_geo/web/static/testing_app.css",
+      "source_sha256": "d9736817776a337bf09b9ffcfc28b2812d07147162398c9300c43b2ba8db1d24"
+    },
+    {
+      "path": "src/clinic_geo/web/static/testing_app.js",
+      "source_sha256": "2a6a87d2f033b566a01601122ac51a01d9e8e385a055827545bca5ac5b40b0c3"
+    },
+    {
+      "path": "src/clinic_geo/web/static/visibility_testing.js",
+      "source_sha256": "d8a0f2bc81ccb58cf1727446aa01ce91cdda4ae93832de360c9188c05b248067"
+    },
+    {
+      "path": "src/clinic_geo/web/templates/visibility_testing.html",
+      "source_sha256": "e73a2e5174b0f66f25e48e2adcc64101a27c49f6d3d920331a60166c3d27385d"
+    },
+    {
+      "path": "src/clinic_geo/web/visibility_testing.py",
+      "source_sha256": "3ecffbef8b168d3cab3fc59ef017fd526382b2963ae2603c47ca3cc7bf231a66"
+    },
+    {
+      "path": "src/clinic_geo/workflows/__init__.py",
+      "source_sha256": "eef081c81a0c07c7a97eb21b0d2dce2b7f94ae480128c7183d4b96673c18e1a4"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/__init__.py",
+      "source_sha256": "473799833c8cbcb4c62c9fb896649b4c889646ce4363145d2b1a5fb8c435c2eb"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/analysis_v2.py",
+      "source_sha256": "37361e76d0b0262641dc5693c6a673a56dfd75284d9d891263bfd04ce31805ce"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/competitors_v2.py",
+      "source_sha256": "9e8c1253eead497bd25064c65da92d775bbfcd877f57fc38218006520d36c125"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/contracts_v2.py",
+      "source_sha256": "c623f14eb064f34b4d97b86d07df557214aeaaeff201c1add766c347c1f4acd8"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/copilot_synthesis_v2.py",
+      "source_sha256": "a0295767dc694db7d5f1cc3adb6ec5d9847e832d2a322eccc77bb1deae623b8e"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/name_reconciliation_v2.py",
+      "source_sha256": "c986dca458abc7420cf58f2b706bdca5a41e0e26f9382d4d406125ff08e6efaa"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/observations_v2.py",
+      "source_sha256": "daf66d64c776770fbfa3ababb589c72e194cfe2470f4ecbdb52dd385c94162cf"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/prompt_rendering_v4.py",
+      "source_sha256": "57eed3f4472a4cbe98eebe3c2ad158d099f031f8e1e492182366204a519c2f78"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/publication.py",
+      "source_sha256": "6119920fe3930645c080fa71acace4dea370661c1d415c04034a1ee68810504f"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/purpose_adapter_v1.py",
+      "source_sha256": "ce95994568a589fbe582b2b4ea1132ae3d99cb43c210c88d8a02b2c80f7ee28e"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/recommendations_v2.py",
+      "source_sha256": "5830071ef0e627398118396a349ae21ffa72aebfd8c636840c971db6b7244b27"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/scope_v2.py",
+      "source_sha256": "79433c8abc90c3c5148660d7a7b47ad8eb2fd3d7f13743a77d09811962ad876f"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/telemetry_v2.py",
+      "source_sha256": "6397b55f53e0d5293bbfccccc13d1fa019e6b9d9aa6ec31b5feef592327370e2"
+    },
+    {
+      "path": "src/clinic_geo/workflows/free_audit/verdicts_v2.py",
+      "source_sha256": "73c011ea6c03cfc7eec2482e99cf0bcc015e6316e06f540e562e0d0f60a7012c"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/__init__.py",
+      "source_sha256": "6ecb453f9239538279df9d720844fd267a14258ac0af7b1dfd69816dfa019656"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/api.py",
+      "source_sha256": "ee5b5bee76ac5542b5f6328bce63c91db30f1481518ba63cac6e7c22c4f1a43a"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/client_report.py",
+      "source_sha256": "106b9693ef4c1b31330cde7458c291ea0996e725e52374834617934c84837043"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/engine.py",
+      "source_sha256": "e9051c09a07f0c42bf7fbba8db9d20361cca300902e42c3fd02a26e551419f85"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/scope_builder.py",
+      "source_sha256": "bba0d9fc14fb1c3ef030348474640fb98989b6354349e97268c5f25ae4aa7308"
+    },
+    {
+      "path": "src/clinic_geo/workflows/paid_audit/store.py",
+      "source_sha256": "39ae95e813263101c5d993f583806cd439be7cdc9a0ed911e30fc14d4c6940c2"
+    },
+    {
+      "path": "tests/test_client_research_api.py",
+      "source_sha256": "4ec06ac58f58f7977dc40149a9118a2b57ef3aebe46e8fb90dce7f034ef40313"
+    },
+    {
+      "path": "tests/test_client_research_assessment.py",
+      "source_sha256": "2c940af7afc24089ec2e6443b6f981519bbc67631f79e45ad22a0acf4c596bb0"
+    },
+    {
+      "path": "tests/test_client_research_evidence.py",
+      "source_sha256": "998d6df7963230eb57aede302cd0f82a2ca0171e17afcda2eb6058a21d1a9707"
+    },
+    {
+      "path": "tests/test_client_research_execution.py",
+      "source_sha256": "97a0837cd37ecdb75cc6b3f5239d306375c63bdc1f7a787357410610a610177f"
+    },
+    {
+      "path": "tests/test_client_research_execution_review.py",
+      "source_sha256": "8bfbe178b60e98af6673c77c0ff6de40ffb36fc18cca4cc771291f09134c2487"
+    },
+    {
+      "path": "tests/test_client_research_panel_ui.py",
+      "source_sha256": "3aab64352c30f2be1fdadf6e01e7445a4ffbf8eb65a969831869e1d9181a8dac"
+    },
+    {
+      "path": "tests/test_client_research_scheduler.py",
+      "source_sha256": "696cda53b3a701825c122f5c1043076ed3f3253a2d7cb9c8be1c0fccad01fd67"
+    },
+    {
+      "path": "tests/test_client_research_service.py",
+      "source_sha256": "f0f4d5fb633dcee7267a473651bad7921ded88dfc6960b4ce0d340aadb34577a"
+    },
+    {
+      "path": "tests/test_client_research_service_review.py",
+      "source_sha256": "32476d7419aeb9aaf59ac93385769b6cd615a55e8abdc2b8736e25279e9da028"
+    },
+    {
+      "path": "tests/test_supplied_clinic_directory.py",
+      "source_sha256": "e97c1306a7b97d9d85ce0519627324d155d58a488810db70a037f19217945fee"
+    },
+    {
+      "path": "vendor/visibility_runner-0.2.54-py3-none-any.whl",
+      "source_sha256": "a4e480b1b739716032e54dbc18772feaad5a065ae865a5d1ff80400b2164ae6b"
+    },
+    {
+      "path": "vendor/workspace_automation_core-0.1.2-py3-none-any.whl",
+      "source_sha256": "883deb56fb924811c78272c968319c8be58d5b1d7724fb182ec58d5632ad2f02"
+    },
+    {
+      "path": "vendor/axbridge-0.2.3-py3-none-any.whl",
+      "source_sha256": "eeedffe37e11080dca668a2e890c8ba093399c4e42bed5d5c4695b57dcd571af"
+    },
+    {
+      "path": "resources/free-audit/prompt_catalog.json",
+      "source_sha256": "6723e68eca77434fcf2f38ed1d8980f643288b27e79c507cbde265553148ca16"
+    },
+    {
+      "path": "resources/free-audit/prompt-geography-v1.json",
+      "source_sha256": "22e4dd21646a299da5f113de827003b1524302f7be8a13ef01c18a16716112a7"
+    }
+  ]
+}
